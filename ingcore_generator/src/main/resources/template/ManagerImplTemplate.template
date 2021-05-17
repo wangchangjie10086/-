@@ -1,0 +1,18 @@
+package {manager.impl.package};
+
+import {package_bean}.{bean_class_name}Example;
+import {base.manager.impl.package}.Base{bean_class_name}ManagerImpl;
+import {manager.package}.{bean_class_name}Manager;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
+
+@Service
+public class {bean_class_name}ManagerImpl extends Base{bean_class_name}ManagerImpl implements {bean_class_name}Manager {
+
+    @Override
+    protected void createSearchByMap(Map<String, Object> params, {bean_class_name}Example.Criteria criteria, {bean_class_name}Example search) {
+
+    }
+}
+

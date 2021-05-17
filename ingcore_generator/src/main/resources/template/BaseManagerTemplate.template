@@ -1,0 +1,28 @@
+package {package_server};
+
+import {package_bean}.{bean_class_name};
+
+import java.util.List;
+import java.util.Map;
+
+public interface Base{bean_class_name}Manager {
+
+    long countByBean({bean_class_name} bean);
+
+    int delete({service_key_type} id);
+
+    int deleteByBean({bean_class_name} bean);
+
+    int insert({bean_class_name} bean);
+
+    int update({bean_class_name} bean);
+
+    {bean_class_name} selectByPrimaryKey({service_key_type} id);
+
+    List<{bean_class_name}> selectByBean({bean_class_name} bean);
+
+    List<{bean_class_name}> selectByMap(Map<String,Object> params);
+
+    List<{bean_class_name}> selectByMap(Map<String, Object> params, {bean_class_name} bean);
+}
+

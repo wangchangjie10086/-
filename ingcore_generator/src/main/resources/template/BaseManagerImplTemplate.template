@@ -1,0 +1,120 @@
+package {package_impl};
+
+import java.util.List;
+import java.util.Date;
+import java.util.Map;
+import javax.annotation.Resource;
+
+import {package_bean}.{bean_class_name};
+import {package_bean}.{bean_class_name}Example;
+import {package_bean}.{bean_class_name}Example.Criteria;
+import {package_mapper}.{bean_class_name}Dao;
+import {package_server}.Base{bean_class_name}Manager;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public abstract class Base{bean_class_name}ManagerImpl implements Base{bean_class_name}Manager {
+
+    @Resource
+    protected {bean_class_name}Dao dao;
+    //cacheKey
+    protected final static String cacheKey = "bean.{bean_class_name}";
+
+    protected {bean_class_name}Example createSearch({bean_class_name} bean) {
+        {bean_class_name}Example search = new {bean_class_name}Example();
+        Criteria cra = search.createCriteria();
+        createSearchByBean(bean, cra, search);
+        return search;
+    }
+
+    private void createSearchByBean({bean_class_name} bean, Criteria cra, {bean_class_name}Example search) {
+        {criteria_code}
+    }
+
+    @Override
+    public long countByBean({bean_class_name} bean) {
+        {bean_class_name}Example search = this.createSearch(bean);
+        return dao.countByExample(search);
+    }
+
+    @Override
+    public int delete({service_key_type} id) {
+        if (id == null) return 0;
+        int val = dao.deleteByPrimaryKey(id);
+        return val;
+    }
+
+    @Override
+    public int deleteByBean({bean_class_name} bean) {
+        {bean_class_name}Example search = this.createSearch(bean);
+        int val = dao.deleteByExample(search);
+        return val;
+    }
+
+    @Override
+    public int insert({bean_class_name} bean) {
+        if (bean == null) return 0;
+
+        {bean_timestamp_add_time}
+        {bean_timestamp_update_time}
+        int val = dao.insertSelective(bean);
+        return val;
+    }
+
+    @Override
+    public int update({bean_class_name} bean) {
+        if (bean == null) return 0;
+        {bean_timestamp_update_time}
+
+        int val = dao.updateByPrimaryKeySelective(bean);
+        return val;
+    }
+
+    @Override
+    public {bean_class_name} selectByPrimaryKey({service_key_type} id) {
+        if (id == null) return null;
+        {bean_class_name} bean = dao.selectByPrimaryKey(id);
+        return bean;
+    }
+
+    @Override
+    public List<{bean_class_name}> selectByBean({bean_class_name} bean) {
+        {bean_class_name}Example search = this.createSearch(bean);
+        search.setLimitStart(bean.getLimitStart());
+        search.setLimitEnd(bean.getLimitEnd());
+        List<{bean_class_name}> list = dao.selectByExample(search);
+        return list;
+    }
+
+    @Override
+    public List<{bean_class_name}> selectByMap(Map<String, Object> params) {
+        {bean_class_name}Example search = new {bean_class_name}Example();
+        Criteria criteria = search.createCriteria();
+        if (params != null) {
+            createSearchByMap(params, criteria, search);
+        }
+        List<{bean_class_name}> list = dao.selectByExample(search);
+        return list;
+    }
+
+    @Override
+    public List<{bean_class_name}> selectByMap(Map<String, Object> params, {bean_class_name} bean) {
+        {bean_class_name}Example search = new {bean_class_name}Example();
+        Criteria criteria = search.createCriteria();
+        createSearchByBean(bean, criteria, search);
+        if (params != null) {
+            createSearchByMap(params, criteria, search);
+        }
+        List<{bean_class_name}> list = dao.selectByExample(search);
+        return list;
+    }
+
+    /**
+     * 提供给子类根据map参数设置查询条件
+     *
+     * @param params
+     * @param criteria
+     */
+    protected abstract void createSearchByMap(Map<String, Object> params, Criteria criteria, {bean_class_name}Example search);
+
+}
+

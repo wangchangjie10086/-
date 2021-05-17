@@ -1,0 +1,8 @@
+package {manager.package};
+
+import {base.manager.package}.Base{bean_class_name}Manager;
+
+public interface {bean_class_name}Manager extends Base{bean_class_name}Manager {
+
+}
+

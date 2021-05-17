@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generatorConfig.properties"/>
+
+    <classPathEntry location="${classPathEntry}"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <property name="suppressTypeWarnings" value="true"/>
+
+        <!-- 数据库关键字冲突,自动处理 -->
+        <property name="autoDelimitKeywords" value="true"/>
+        <!-- 用反引号`包裹,默认是双引号"-->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+
+        <plugin type="com.ingcore.generator.plugin.SelectByExample"/>
+        <plugin type="com.ingcore.generator.plugin.OverwriteXmlPlugin"/>
+
+        <!--<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Search"/>
+        </plugin>-->
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${driverClass}"
+                        connectionURL="${connectionURL}" userId="${userId}" password="${password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="${modelPackage}"
+                            targetProject="${daltargetProject}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.ingcore.common.model.BaseModel"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${dalMapperTargetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="${daoMapperPackage}" targetProject="${daltargetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="t_card" domainObjectName="Card" mapperName="BaseCardMapper"
+               enableUpdateByExample="true" enableDeleteByExample="true" selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>
+
