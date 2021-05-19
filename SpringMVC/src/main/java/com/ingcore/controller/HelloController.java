@@ -1,6 +1,7 @@
 package com.ingcore.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -10,7 +11,7 @@ public class HelloController {
 
     @RequestMapping("/login")
     public String login(){
-        return "/login/login";
+        return "/login";
     }
 
     @ResponseBody
