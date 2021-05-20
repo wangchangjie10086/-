@@ -1,0 +1,43 @@
+/*财务管理展开明细*/
+.blue{
+    color: #009DDA;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.unfold,.shut{
+    cursor:pointer;
+}
+
+.shut{
+    display:none;
+}
+.detail-wrap {
+    position: relative;
+    height: 88px;
+}
+
+.detail-wrap > ul {
+    display: flex;
+    position: absolute;
+    border: 1px solid #009DDA;
+}
+
+.detail-wrap > ul > li {
+    text-align: center;
+}
+
+.pay-wrap .pay-name{
+    margin: 0;
+    font-size: 12px;
+    line-height: 34px;
+}
+
+.pay-wrap p {
+    width: 120px;
+    line-height: 44px;
+}
+.add-width {
+    width: 248px;
+    text-align: left;
+}

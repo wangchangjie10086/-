@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ingcore_common" />
+        <module name="SpringMVC" />
+        <module name="server_market_dal" />
+        <module name="ingcore_generator" />
+        <module name="ingcore_mp_generator" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
